@@ -4,9 +4,13 @@ class BlogsController < ApplicationController
   end
 
   def new
+    @blog = Blog.new
   end
 
   def create
+    @blog = Blog.new(title: params[:blog][:title], content: params[:blog][:content], user_id: current_user.id)
+    @blog.save
+    redirect_to blogs_path
   end
 
   def show
