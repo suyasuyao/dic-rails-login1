@@ -8,7 +8,8 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.new(title: params[:blog][:title], content: params[:blog][:content], user_id: current_user.id)
+    @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
     @blog.save
     redirect_to blogs_path
   end
@@ -24,5 +25,11 @@ class BlogsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def blog_params
+    params.require(:blog).permit(:title, :content)
   end
 end
