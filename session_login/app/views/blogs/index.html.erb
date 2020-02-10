@@ -10,6 +10,7 @@
     <td><%= blog.content %></td>
     <td><%= blog.user.name %></td>
     <td><%= link_to '詳細を確認する', blog_path(id: blog.id)%></td>
+    <td><%= link_to '詳細を編集する', edit_blog_path(id: blog.id)%></td>
   </tr>
   <% end %>
 

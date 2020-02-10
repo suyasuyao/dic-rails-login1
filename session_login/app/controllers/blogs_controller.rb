@@ -11,7 +11,7 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
     if @blog.save
-      redirect_to blogs_path
+      redirect_to blogs_path, notice: "ブログを作成しました！"
     else
       render new_blog_path
     end
@@ -22,9 +22,16 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    @blog = Blog.find(params[:id])
   end
 
   def update
+    @blog = Blog.find(params[:id])
+    if @blog.update(blog_params)
+      redirect_to blogs_path, notice: "ブログを編集しました！"
+    else
+      render :edit
+    end
   end
 
   def destroy
