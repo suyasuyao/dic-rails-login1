@@ -11,6 +11,7 @@
     <td><%= blog.user.name %></td>
     <td><%= link_to '詳細を確認する', blog_path(id: blog.id)%></td>
     <td><%= link_to '詳細を編集する', edit_blog_path(id: blog.id)%></td>
+    <td><%= link_to '削除する', blog_path(id: blog.id), method: :delete,data: { confirm: '本当に削除していいですか？' }  %></td>
   </tr>
   <% end %>
 

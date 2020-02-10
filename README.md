@@ -14,4 +14,6 @@
  docker-compose run web bin/rails db:migrate db:seed
 # アプリケーション起動時毎回実施
  docker-compose up
+ 
+  docker-compose run web bash
 ```
