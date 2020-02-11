@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+    <th>ユーザ</th>
+  </tr>
+
+  <tr>
+    <td><%= @blog.title %></td>
+    <td><%= @blog.content %></td>
+    <td><%= @blog.user.name %></td>
+    <td><%= link_to '内容を変更する', edit_blog_path(id: @blog.id)%></td>
+  </tr>
+
+</table>
